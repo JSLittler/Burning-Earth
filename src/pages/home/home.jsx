@@ -45,7 +45,7 @@ const HomePage = ({
   };
   
   return (
-    <Page>
+    <Page className="width">
       <WarmingTable 
         countryView={countryView}
         projectedAnnualWarmingData={projectedAnnualWarmingData}

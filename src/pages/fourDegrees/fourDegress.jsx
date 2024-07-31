@@ -7,7 +7,7 @@ import './styles.module.scss';
 const FourDegress = ({}) => {
 
     return (
-        <Page>
+        <Page className="width">
             <div data-testid='image-container' className='image-container' autoFocus>
                 <img data-testid='fourDegrees-image' src="./assets/4cImage.png"  alt="" className="infographic"></img>
             </div>
