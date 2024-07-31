@@ -1,0 +1,59 @@
+.header {
+    color: #753209e3;
+    text-wrap: wrap;
+
+    h1 {
+        font-family: fantasy;
+        font-size: 36pt;
+        font-weight: bolder;
+        margin: 0;
+        margin: auto;
+        text-decoration: underline;
+    }
+
+    @media screen and (max-width: 725px) {
+        width: 100%;
+    }
+
+    .logo {
+        display: inline;
+        height: 15%;
+        width: 15%;
+        margin-bottom: -3%;
+    }
+
+    .greta {
+        font-size: 12pt;
+        font-weight: lighter;
+        padding-right: 3%;
+        text-wrap: balance;
+    }
+
+    .nav-container {
+        @media screen and (max-width: 725px) {
+            display: inline-block;
+            
+        }
+      
+          @media screen and (min-width: 726px) {
+            display: block;
+        }
+
+        hr {
+            border: 1px solid #753209e3;
+        }
+
+        .nav-button {
+            border: black 1px;  
+            border-radius: 17px;  
+            box-shadow: 5px 5px 5px -2px #753209e3;
+            color: #753209e3;
+            height: 30px;
+            margin: 1%;
+            margin-top: 1em;
+            min-width: 75px;
+            padding-left: 7px;
+        }
+    }
+}
+
