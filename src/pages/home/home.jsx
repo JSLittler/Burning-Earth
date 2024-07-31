@@ -19,7 +19,7 @@ const HomePage = ({
 
   const getChart = () => {
     if (!isTableDataReady) {
-      return ``;
+      return <p>Comparison Table will appear here, once a country is selected</p>;
     }
 
     const data = getChartData({countryView, projectedGlobalWarmingData, temperatureRange});
@@ -45,17 +45,19 @@ const HomePage = ({
   };
   
   return (
-    <Page className="width">
-      <WarmingTable 
-        countryView={countryView}
-        projectedAnnualWarmingData={projectedAnnualWarmingData}
-        projectedGlobalWarmingData={projectedGlobalWarmingData}
-        setCountryToView={setCountryToView}
-        temperatureRange={temperatureRange}
-        setTemperatureRange={setTemperatureRange}
-      />
-      {getChart()}
-      <p data-testid="source">source: https://climateanalytics.org/</p>
+    <Page>
+      <div className="home-container">
+        <WarmingTable 
+          countryView={countryView}
+          projectedAnnualWarmingData={projectedAnnualWarmingData}
+          projectedGlobalWarmingData={projectedGlobalWarmingData}
+          setCountryToView={setCountryToView}
+          temperatureRange={temperatureRange}
+          setTemperatureRange={setTemperatureRange}
+        />
+        {getChart()}
+        <p data-testid="source">source: https://climateanalytics.org/</p>
+      </div>
     </Page>
   );
 };

@@ -58,8 +58,8 @@ const WarmingTable = ({
             <thead>
                 <tr>
                     <th colSpan={10}>
-                        <h2>Future Warming</h2>
-                        <p>
+                        <h2 className="text-size">Future Warming</h2>
+                        <p className="text-size">
                             Select a country to see how much it is expected to warm up to the year 2100, with current climate policies in place.
                         </p>
                         <div className="range-container">

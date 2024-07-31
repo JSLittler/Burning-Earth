@@ -1,5 +1,21 @@
-.width {
+.home-container {
+    color: #753209e3;
     width: 100%;
+
+    @media screen and (max-width: 719px) {
+        display: inline-block;
+        align-items: center;
+        height: 100%;
+        min-height: 100vh;
+
+        @media screen and (min-height: 300px) and (max-height: 819px) {
+            padding-bottom: 50%;
+        }
+
+        @media screen and (min-height: 820px) {
+            padding-bottom: 65%;
+        }
+    }
 }
 
 .chart {
@@ -13,6 +29,12 @@
     margin-left: auto;
     margin-top: 15px;
     width: 100%;
+
+    @media screen and (max-width: 719px) {
+        display: inline-block;
+        align-items: center;
+        height: 100%;
+    }
 
     svg {
         width: 100%;
