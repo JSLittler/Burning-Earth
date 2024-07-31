@@ -8,7 +8,7 @@
 
 ## Purpose
 
-This is an exmple SPA Web Application designed to allow users to see projected temperature rises on a country by country basis. It is written as a practical demonstration of some of my front-end skills including writing:
+This is an example SPA Web Application designed to allow users to see projected temperature rises on a country by country basis. It is written as a practical demonstration of some of my front-end skills including writing:
 
 - Javascript ES2023
 - REACT (Single Page Application)
