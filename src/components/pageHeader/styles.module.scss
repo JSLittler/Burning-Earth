@@ -1,14 +1,15 @@
 .header {
-    color: #753209e3;
     text-wrap: wrap;
 
     h1 {
         font-family: fantasy;
-        font-size: 36pt;
+        font-size: 32pt;
         font-weight: bolder;
         margin: 0;
         margin: auto;
+        text-align: center;
         text-decoration: underline;
+        text-wrap: nowrap;
     }
 
     @media screen and (max-width: 725px) {
@@ -39,7 +40,6 @@
     .nav-container {
         @media screen and (max-width: 725px) {
             display: inline-block;
-            
         }
       
           @media screen and (min-width: 726px) {
@@ -54,7 +54,6 @@
             border: black 1px;  
             border-radius: 17px;  
             box-shadow: 5px 5px 5px -2px #753209e3;
-            color: #753209e3;
             height: 30px;
             margin: 1%;
             margin-top: 1em;
@@ -63,4 +62,3 @@
         }
     }
 }
-
