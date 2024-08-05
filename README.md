@@ -65,6 +65,10 @@ Locally, `http-server` is used to deploy the application to: `http://localhost:8
 
 nb. warming data must be updated on first run. Also, remember to run `npm install` from root prior to running for the first time.
 
+## Depolyment
+
+A live version of this app can be found [here](http://burning-earth.s3-website.eu-west-2.amazonaws.com/)
+
 ## TODO
 
 - Deployment
