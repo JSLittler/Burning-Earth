@@ -1,6 +1,6 @@
 # Burning Earth
 
-[Version](#version) | [Purpose](#purpose) | [Dependencies](#dependencies) | [Key-Technologies](#key-technologies) | [Testing](#testing) | [Development](#development) | [Depolyment](#deployment) | [TODO](#todo)
+[Version](#version) | [Purpose](#purpose) | [Dependencies](#dependencies) | [Key-Technologies](#key-technologies) | [Testing](#testing) | [Development](#development) | [Deployment](#deployment) | [TODO](#todo)
 
 ## Version
 
