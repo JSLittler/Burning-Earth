@@ -10,8 +10,8 @@ const PageHeader = ({}) => {
 
     return (
         <header className="header">
-            <div>
-                <h1> Burning Earth <img src="./assets/favicon.png" alt="" className="logo"></img></h1>
+            <div className="title">
+                <h1> Burning Earth</h1><img src="./assets/favicon.png" alt="" className="logo"></img>
             </div>
             <div className='greta'>
                 <p >

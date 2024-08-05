@@ -4,4 +4,7 @@
 # testing
 /coverage
 
+# built Code
+/public/dist
+
 npm-debug.log*

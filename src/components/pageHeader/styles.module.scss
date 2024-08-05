@@ -1,40 +1,32 @@
 .header {
     text-wrap: wrap;
+    font-size: large;
 
-    h1 {
-        font-family: fantasy;
-        font-size: 32pt;
-        font-weight: bolder;
-        margin: 0;
-        margin: auto;
-        text-align: center;
-        text-decoration: underline;
-        text-wrap: nowrap;
-    }
-
-    @media screen and (max-width: 725px) {
+    .title {
         width: 100%;
-    }
 
-    .logo {
-        display: inline;
-        height: 15%;
-        width: 15%;
-        margin-bottom: -3%;
+        h1 {
+            font-family: fantasy;
+            font-weight: bolder;
+            margin: 0;
+            margin: auto;
+            text-align: center;
+            text-decoration: underline;
+            text-wrap: nowrap;
+        }
+
+        .logo {
+            display: inline;
+            height: 15%;
+            width: 30%;
+            margin-bottom: -3%;
+        }
     }
 
     .greta {
         font-weight: lighter;
         padding-right: 3%;
         text-wrap: balance;
-
-        @media screen and (max-width: 719px) {
-            font-size: x-large;
-        }
-
-        @media screen and (min-width: 720px) {
-            font-size: large;
-        }
     }
 
     .nav-container {
