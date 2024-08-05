@@ -1,6 +1,6 @@
 # Burning Earth
 
-[Version](#version) | [Purpose](#purpose) | [Dependencies](#dependencies) | [Key-Technologies](#key-technologies) | [Testing](#testing) | [Development](#development) | [TODO](#todo)
+[Version](#version) | [Purpose](#purpose) | [Dependencies](#dependencies) | [Key-Technologies](#key-technologies) | [Testing](#testing) | [Development](#development) | [Depolyment](#deployment) | [TODO](#todo)
 
 ## Version
 
@@ -65,7 +65,7 @@ Locally, `http-server` is used to deploy the application to: `http://localhost:8
 
 nb. warming data must be updated on first run. Also, remember to run `npm install` from root prior to running for the first time.
 
-## Depolyment
+## Deployment
 
 A live version of this app can be found [here](http://burning-earth.s3-website.eu-west-2.amazonaws.com/)
 
