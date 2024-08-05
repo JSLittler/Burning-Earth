@@ -5,6 +5,6 @@
 /coverage
 
 # built Code
-/public/dist
+# /public/dist
 
 npm-debug.log*
