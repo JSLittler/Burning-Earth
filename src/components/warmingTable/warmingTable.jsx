@@ -83,7 +83,7 @@ const WarmingTable = ({
                 </tr>
                 <tr data-testid="country1-row">
                     <td>
-                        <select id="country1" data-testid="country1" name="country1" defaultValue={""} onChange={e => setCountryData(e)} className='select' autoFocus>
+                        <select id="country1" data-testid="country1" name="country1" defaultValue={""} onChange={e => setCountryData(e)} className='select'>
                             <option value="" disabled hidden>Select Country</option>
                             {projectedAnnualWarmingData?.map((c, i) => {
                                 return <option key={i} value={`${c.code}-view${0}`}>{c.name}</option>
