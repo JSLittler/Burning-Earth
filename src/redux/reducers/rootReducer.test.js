@@ -3,6 +3,7 @@ import {
     fetchAnnualWarmingDataError,
     fetchAnnualWarmingDataPending,
     fetchAnnualWarmingDataSuccess,
+    resetCountryView,
     setCountryToView,
     setTemperatureRange
 } from './actions/creators';
@@ -108,6 +109,27 @@ describe('root reducer', () => {
         const state1 = rootReducer(initialState, setCountryToView(country1, "view0"));
         
         expect(rootReducer(state1, setCountryToView(country2, "view0"))).toEqual(state2);
+    });
+
+    it('sets correct countryView data when resetCountryView action is dispatched', () => {
+        const initialCountryView = {
+            view0: null,
+            view1: null,
+            view2: null,
+            view3: null,
+            view4: null
+        };
+        const country = mockProjectedAnnualWarmingData[0];
+        const updatedState = {
+            ...initialState,
+            loading: false,
+            countryView: {
+                ...initialState.countryView,
+                view0: country
+            }
+        };
+
+        expect(rootReducer(initialState, resetCountryView()).countryView).toEqual(initialCountryView);
     });
 
     it.each([TEMPERATURE_RANGE.LOWER_PROJECTIONS, TEMPERATURE_RANGE.MEDIAN_PROJECTIONS, TEMPERATURE_RANGE.UPPER_PROJECTIONS])

@@ -5,6 +5,7 @@ import { YEARS_TO_DISPLAY } from '../../constants';
 import './styles.module.scss';
 
 const WarmingTable = ({
+    clearCountryView,
     countryView,
     projectedAnnualWarmingData,
     projectedGlobalWarmingData = [],
@@ -55,7 +56,7 @@ const WarmingTable = ({
 
     return (
         <table data-testid="warmingTable" className={isTableDataReady ? "table-ready warming-table" : "warming-table"}>
-            <thead>
+            <thead className="no-background">
                 <tr>
                     <th colSpan={10}>
                         <h2 className="text-size">Future Warming</h2>
@@ -145,6 +146,17 @@ const WarmingTable = ({
                         <label htmlFor="country5">Select final country to compare</label>
                     </td>
                     {YEARS_TO_DISPLAY.map((y) => <td key={`view4-${y}`} className={getYearWarmingValue(4, y) > 1.5 ? 'red-text' : ''}>{getYearWarmingValue(4, y)}<span>&deg;C</span></td>)}
+                </tr>
+                <tr className="no-background">
+                    <td colSpan={10}>
+                        <button
+                            data-testid="clearCountryView-button"
+                            className="estimate-button"
+                            onClick={() => clearCountryView()}
+                        >
+                            Clear Country Selection
+                        </button>
+                    </td>
                 </tr>
             </tbody>
         </table>

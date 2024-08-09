@@ -2,18 +2,21 @@ import {
     FETCH_ANNUAL_WARMING_DATA_PENDING,
     FETCH_ANNUAL_WARMING_DATA_SUCCESS,
     FETCH_ANNUAL_WARMING_DATA_ERROR,
+    RESET_COUNTRY_VIEW,
     SET_COUNTRY_TO_VIEW,
     SET_TEMPERATURE_RANGE
 } from './actions/types';
 
+const initialCountryView = {
+    view0: null,
+    view1: null,
+    view2: null,
+    view3: null,
+    view4: null
+};
+
 const initialState = {
-    countryView: {
-        view0: null,
-        view1: null,
-        view2: null,
-        view3: null,
-        view4: null
-    },
+    countryView: initialCountryView,
     loading: 'false',
     projectedAnnualWarmingData: [],
     temperatureRange: 'medianProjections',
@@ -39,6 +42,12 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 loading: false,
                 error: action.payload
+            }
+        case RESET_COUNTRY_VIEW:
+            return {
+                ...state,
+                loading: false,
+                countryView: initialCountryView
             }
         case SET_COUNTRY_TO_VIEW:
             return {

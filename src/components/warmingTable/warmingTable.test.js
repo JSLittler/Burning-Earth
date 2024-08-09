@@ -8,6 +8,8 @@ import { TEMPERATURE_RANGE } from '../../constants';
 
 const { LOWER_PROJECTIONS, MEDIAN_PROJECTIONS, UPPER_PROJECTIONS } = TEMPERATURE_RANGE;
 
+const mockClearCountryView = jest.fn();
+
 const mockCountryView = {
     view0: null,
     view1: null,
@@ -42,6 +44,7 @@ describe('<WarmingTable />', () => {
     it('renders title and text', () => {
         const { getByText } = render(
             <WarmingTable 
+                clearCountryView={mockClearCountryView}
                 countryView={mockCountryView}
                 projectedAnnualWarmingData={mockProjectedAnnualWarmingData}
                 projectedGlobalWarmingData={mockProjectedGlobalWarmingData}
@@ -59,6 +62,7 @@ describe('<WarmingTable />', () => {
         it('renders global median warming with red text only when 1.5°C target is breached', () => {
             const { getByText } = render(
                 <WarmingTable 
+                    clearCountryView={mockClearCountryView}
                     countryView={mockCountryView}
                     projectedAnnualWarmingData={mockProjectedAnnualWarmingData}
                     projectedGlobalWarmingData={mockProjectedGlobalWarmingData}
@@ -89,6 +93,7 @@ describe('<WarmingTable />', () => {
         it('renders a single country select on load', () => {
             const { getByTestId } = render(
                 <WarmingTable 
+                    clearCountryView={mockClearCountryView}
                     countryView={mockCountryView}
                     projectedAnnualWarmingData={mockProjectedAnnualWarmingData}
                     projectedGlobalWarmingData={mockProjectedGlobalWarmingData}
@@ -146,6 +151,7 @@ describe('<WarmingTable />', () => {
         it('sets a country to view', async () => {
             const { getByTestId, getAllByText } = render(
                 <WarmingTable 
+                    clearCountryView={mockClearCountryView}
                     countryView={mockCountryView}
                     projectedAnnualWarmingData={mockProjectedAnnualWarmingData}
                     projectedGlobalWarmingData={mockProjectedGlobalWarmingData}
@@ -161,16 +167,36 @@ describe('<WarmingTable />', () => {
             expect(mockSetCountryToView).toHaveBeenCalledTimes(1);
             expect(mockSetCountryToView).toHaveBeenCalledWith(mockProjectedWarmingData[0], 'view0');
         });
+
+        it('calls clearCountryView', async () => {
+            const { getByTestId, getAllByText } = render(
+                <WarmingTable 
+                    clearCountryView={mockClearCountryView}
+                    countryView={mockCountryView}
+                    projectedAnnualWarmingData={mockProjectedAnnualWarmingData}
+                    projectedGlobalWarmingData={mockProjectedGlobalWarmingData}
+                    setCountryToView={mockSetCountryToView}
+                    temperatureRange={MEDIAN_PROJECTIONS}
+                    setTemperatureRange={mockSetTemperatureRange}
+                />
+            );
+    
+            const clearCountryViewButton = getByTestId('clearCountryView-button');
+            await waitFor(() => userEvent.click(clearCountryViewButton));
+            
+            expect(mockClearCountryView).toHaveBeenCalledTimes(1);
+        });
     });
 
     describe('Selecting lower, median or upper temperature projections', () => {
         beforeEach(() => {
             jest.clearAllMocks();
-          });
+        });
           
         it('renders lower, median and upper projections buttons', () => {
             const { getByTestId } = render(
                 <WarmingTable 
+                    clearCountryView={mockClearCountryView}
                     countryView={mockCountryView}
                     projectedAnnualWarmingData={mockProjectedAnnualWarmingData}
                     projectedGlobalWarmingData={mockProjectedGlobalWarmingData}
@@ -245,6 +271,7 @@ describe('<WarmingTable />', () => {
         it('set temperature range when Lower Warning Estimates are selected', async () => {
             const { getByTestId } = render(
                 <WarmingTable 
+                    clearCountryView={mockClearCountryView}
                     countryView={mockCountryView}
                     projectedAnnualWarmingData={mockProjectedAnnualWarmingData}
                     projectedGlobalWarmingData={mockProjectedGlobalWarmingData}
@@ -269,6 +296,7 @@ describe('<WarmingTable />', () => {
         it('sets temperature range when Median Warning Estimates are selected', async () => {
             const { getByTestId } = render(
                 <WarmingTable 
+                    clearCountryView={mockClearCountryView}
                     countryView={mockCountryView}
                     projectedAnnualWarmingData={mockProjectedAnnualWarmingData}
                     projectedGlobalWarmingData={mockProjectedGlobalWarmingData}
@@ -293,6 +321,7 @@ describe('<WarmingTable />', () => {
         it('sets temperature range when Median Warning Estimates are selected', async () => {
             const { getByTestId } = render(
                 <WarmingTable 
+                    clearCountryView={mockClearCountryView}
                     countryView={mockCountryView}
                     projectedAnnualWarmingData={mockProjectedAnnualWarmingData}
                     projectedGlobalWarmingData={mockProjectedGlobalWarmingData}

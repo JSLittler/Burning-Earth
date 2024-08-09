@@ -5,7 +5,8 @@ import {
 } from "./fetchAnnualWarmingData";
 
 import {
-    setCountryToView
+    setCountryToView,
+    resetCountryView
 } from './setCountryToView';
 
 import {
@@ -16,6 +17,7 @@ export {
     fetchAnnualWarmingDataError,
     fetchAnnualWarmingDataPending,
     fetchAnnualWarmingDataSuccess,
+    resetCountryView,
     setCountryToView,
     setTemperatureRange
 };

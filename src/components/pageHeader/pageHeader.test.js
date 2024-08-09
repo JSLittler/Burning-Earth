@@ -11,10 +11,16 @@ jest.mock('react-router-dom', () => ({
   useNavigate: () => mockedUsedNavigate,
 }));
 
+const mockClearCountryView = jest.fn();
+
 describe('<PageHeader />', () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
+
     it('renders title', () => {
         const { getByText } = render(
-            <BrowserRouter><PageHeader></PageHeader></BrowserRouter>
+            <BrowserRouter><PageHeader clearCountryView={mockClearCountryView}></PageHeader></BrowserRouter>
         );
 
         expect(getByText('Burning Earth')).toBeInTheDocument();
@@ -22,7 +28,7 @@ describe('<PageHeader />', () => {
 
     it('renders Greta Thunberg quote', () => {
         const { getByText } = render(
-            <BrowserRouter><PageHeader></PageHeader></BrowserRouter>
+            <BrowserRouter><PageHeader clearCountryView={mockClearCountryView}></PageHeader></BrowserRouter>
         );
         
         expect(getByText(/I want you to act as you would in a crisis. I want you to act as if our house is on fire. Because it is./i)).toBeInTheDocument();
@@ -31,7 +37,7 @@ describe('<PageHeader />', () => {
 
     it('renders nav buttons', () => {
         const { getByTestId } = render(
-            <BrowserRouter><PageHeader></PageHeader></BrowserRouter>
+            <BrowserRouter><PageHeader clearCountryView={mockClearCountryView}></PageHeader></BrowserRouter>
         );
 
         const homeButton = getByTestId('Home-button');
@@ -45,7 +51,7 @@ describe('<PageHeader />', () => {
 
     it('has functional home nav button', () => {
         const { getByTestId } = render(
-            <BrowserRouter><PageHeader></PageHeader></BrowserRouter>
+            <BrowserRouter><PageHeader clearCountryView={mockClearCountryView}></PageHeader></BrowserRouter>
         );
 
         const homeButton = getByTestId('Home-button');
@@ -54,9 +60,20 @@ describe('<PageHeader />', () => {
         expect(mockedUsedNavigate).toHaveBeenCalledWith('/');
     });
 
+    it('calls clearCountryView when navigate is used', () => {
+        const { getByTestId } = render(
+            <BrowserRouter><PageHeader clearCountryView={mockClearCountryView}></PageHeader></BrowserRouter>
+        );
+
+        const homeButton = getByTestId('Home-button');
+        homeButton.click();
+
+        expect(mockClearCountryView).toHaveBeenCalledTimes(1);
+    });
+
     it('has functional twoDegrees nav button', () => {
         const { getByTestId } = render(
-            <BrowserRouter><PageHeader></PageHeader></BrowserRouter>
+            <BrowserRouter><PageHeader clearCountryView={mockClearCountryView}></PageHeader></BrowserRouter>
         );
 
         const twoDegreesButton = getByTestId('Consequences: 2°C of Warming-button');
@@ -67,7 +84,7 @@ describe('<PageHeader />', () => {
 
     it('has functional fourDegrees nav button', () => {
         const { getByTestId } = render(
-            <BrowserRouter><PageHeader></PageHeader></BrowserRouter>
+            <BrowserRouter><PageHeader clearCountryView={mockClearCountryView}></PageHeader></BrowserRouter>
         );
         
         const fourDegreesButton = getByTestId('Consequences: 4°C of Warming-button');

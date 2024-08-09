@@ -1,13 +1,14 @@
 import React from 'react';
 import { Chart } from "react-google-charts";
 
-import Page from '../../components/page';
+import Page from '../../components/page/page';
 import WarmingTable from '../../components/warmingTable/warmingTable';
 import getChartData from '../../utils/getChartData';
 
 import './styles.module.scss';
 
 const HomePage = ({
+  clearCountryView,
   countryView,
   projectedAnnualWarmingData,
   projectedGlobalWarmingData,
@@ -45,9 +46,10 @@ const HomePage = ({
   };
   
   return (
-    <Page>
+    <Page clearCountryView={clearCountryView}>
       <div className="home-container">
-        <WarmingTable 
+        <WarmingTable
+          clearCountryView={clearCountryView}
           countryView={countryView}
           projectedAnnualWarmingData={projectedAnnualWarmingData}
           projectedGlobalWarmingData={projectedGlobalWarmingData}

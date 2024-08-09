@@ -5,8 +5,15 @@ import { PAGES } from '../../constants';
 
 import './styles.module.scss';
 
-const PageHeader = ({}) => {
+const PageHeader = ({
+    clearCountryView
+}) => {
     const navigate = useNavigate();
+
+    const movePage = page => {
+        clearCountryView();
+        navigate(page);
+    };
 
     return (
         <header className="header">
@@ -19,7 +26,7 @@ const PageHeader = ({}) => {
                 </p>
                 <div className='nav-container'>
                     <hr />
-                    {Object.keys(PAGES).map((key, i) => <button key={`nav-button-${i}`} data-testid={`${PAGES[key].title}-button`} className="nav-button" type="submit" onClick={() => navigate(PAGES[key].path)}>{PAGES[key].title}</button>)}
+                    {Object.keys(PAGES).map((key, i) => <button key={`nav-button-${i}`} data-testid={`${PAGES[key].title}-button`} className="nav-button" type="submit" onClick={() => movePage(PAGES[key].path)}>{PAGES[key].title}</button>)}
                     <hr />
                 </div>
             </div>

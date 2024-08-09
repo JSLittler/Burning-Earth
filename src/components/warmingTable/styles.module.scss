@@ -11,8 +11,11 @@
     margin-top: 15px;
     width: 100%;
 
-    th {
+    .no-background {
         background-color: navajowhite;
+        td {
+            border: none;
+        }
     }
 
     tbody {

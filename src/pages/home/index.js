@@ -1,8 +1,7 @@
 import { connect } from "react-redux";
 
 import HomePage from "./home";
-import { setCountryToView, setTemperatureRange } from "../../redux/reducers/actions/creators";
-import mockProjectedAnnualWarmingData from "../../__mocks__/mockProjectedWarmingData";
+import { setCountryToView, setTemperatureRange, resetCountryView } from "../../redux/reducers/actions/creators";
 
 
 const mapStateToProps = (state) => {
@@ -16,6 +15,7 @@ const mapStateToProps = (state) => {
 };
   
 const mapDispatchToProps = dispatch => ({
+    clearCountryView: () => dispatch(resetCountryView()),
     setCountryToView: (countryData, position) => dispatch(setCountryToView(countryData, position)),
     setTemperatureRange: (range) => dispatch(setTemperatureRange(range))
 });

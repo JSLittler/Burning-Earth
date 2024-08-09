@@ -1,13 +1,15 @@
 import React from 'react';
 
-import Page from '../../components/page';
+import Page from '../../components/page/page';
 
 import './styles.module.scss';
 
-const FourDegress = ({}) => {
+const FourDegress = ({
+    clearCountryView,
+}) => {
 
     return (
-        <Page className="width">
+        <Page className="width" clearCountryView={clearCountryView}>
             <div data-testid='image-container' className='image-container' autoFocus>
                 <img data-testid='fourDegrees-image' src="./assets/4cImage.png"  alt="" className="infographic"></img>
             </div>
