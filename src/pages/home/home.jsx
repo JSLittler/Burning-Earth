@@ -34,6 +34,7 @@ const HomePage = ({
 
     return (
       <div className="chart" data-testid="warmingChart">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
         <Chart
           chartType="ComboChart"
           data={data}
