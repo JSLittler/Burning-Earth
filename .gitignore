@@ -7,4 +7,10 @@
 # built Code
 /public/dist
 
+# terraform
+/deployment/.terraform
+/deployment/.terraform.lock.hcl
+/deployment/terraform.tfstate
+/deployment/terraform.tfstate.backup
+
 npm-debug.log*
