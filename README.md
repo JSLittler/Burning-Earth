@@ -67,12 +67,24 @@ nb. warming data must be updated on first run. Also, remember to run `npm instal
 
 ## Deployment
 
+S3 static website deployed via terraform.
+
+Main terrform definition files can be found [here](./deployment/), however state files have obviously been omitted from this repo.
+
+Deployment instructions (assuming terraform is installed):
+
+1. From root run `npm run build`.
+2. Run `terraform plan` from the CLI, to check deployment changes.
+3. Run `terraform apply` from the CLI, assuming you are happy with the outcome of the previous step.
+4. Answer the confirmation prompt on the CLI by typing `yes` in accordance with prompt instructions.
+
 A live version of this app can be found [here](http://burning-earth.s3-website.eu-west-2.amazonaws.com/)
 
 ## TODO
 
-- Deployment
+- Deployment (SSL and proper domain)
 - User testing (Probably Playwright, possibly in a docker container)
 - Recording screenshots (Probably via blob storage in the browser and then write to the local repo)
 - Add wildfire map and data page
 - Add major storm tracking page
+- Add further information sources page (global warming studies etc...)
