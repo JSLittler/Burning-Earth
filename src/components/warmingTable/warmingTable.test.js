@@ -168,8 +168,44 @@ describe('<WarmingTable />', () => {
             expect(mockSetCountryToView).toHaveBeenCalledWith(mockProjectedWarmingData[0], 'view0');
         });
 
+        it('renders "Clear Country Selection" button with "selected-button" class when countryView is empty', async () => {
+            const { getByTestId } = render(
+                <WarmingTable 
+                    clearCountryView={mockClearCountryView}
+                    countryView={mockCountryView}
+                    projectedAnnualWarmingData={mockProjectedAnnualWarmingData}
+                    projectedGlobalWarmingData={mockProjectedGlobalWarmingData}
+                    setCountryToView={mockSetCountryToView}
+                    temperatureRange={MEDIAN_PROJECTIONS}
+                    setTemperatureRange={mockSetTemperatureRange}
+                />
+            );
+    
+            const clearCountryViewButton = getByTestId('clearCountryView-button');
+            
+            expect(clearCountryViewButton).toHaveAttribute('class', 'selected-button');
+        });
+
+        it('renders "Clear Country Selection" button with "estimate-button" class when countryView is not empty', async () => {
+            const { getByTestId } = render(
+                <WarmingTable 
+                    clearCountryView={mockClearCountryView}
+                    countryView={mockOneSelectedCountryView}
+                    projectedAnnualWarmingData={mockProjectedAnnualWarmingData}
+                    projectedGlobalWarmingData={mockProjectedGlobalWarmingData}
+                    setCountryToView={mockSetCountryToView}
+                    temperatureRange={MEDIAN_PROJECTIONS}
+                    setTemperatureRange={mockSetTemperatureRange}
+                />
+            );
+    
+            const clearCountryViewButton = getByTestId('clearCountryView-button');
+            
+            expect(clearCountryViewButton).toHaveAttribute('class', 'estimate-button');
+        });
+
         it('calls clearCountryView', async () => {
-            const { getByTestId, getAllByText } = render(
+            const { getByTestId } = render(
                 <WarmingTable 
                     clearCountryView={mockClearCountryView}
                     countryView={mockCountryView}
@@ -188,7 +224,7 @@ describe('<WarmingTable />', () => {
         });
     });
 
-    describe('Selecting lower, median or upper temperature projections', () => {
+    describe('Selecting data content and lower, median or upper temperature projections on larger screens', () => {
         beforeEach(() => {
             jest.clearAllMocks();
 
@@ -254,7 +290,6 @@ describe('<WarmingTable />', () => {
         });
 
         it('renders correct data for UPPER_PROJECTIONS', () => {
-
             const { getByText } = render(
                 <WarmingTable 
                     countryView={mockOneSelectedCountryView}
@@ -346,6 +381,70 @@ describe('<WarmingTable />', () => {
             expect(getByTestId('lowerProjections-button')).toHaveAttribute('class', 'estimate-button');
             expect(getByTestId('medianProjections-button')).toHaveAttribute('class', 'estimate-button');
             expect(getByTestId('upperProjections-button')).toHaveAttribute('class', 'selected-button');
+        });
+    });
+
+    describe('Selecting data content and lower, median or upper temperature projections on smaller screens', () => {
+        beforeEach(() => {
+            jest.clearAllMocks();
+
+            global.window.innerWidth = 719;
+            global.window.dispatchEvent(new Event('resize'));
+        });
+          
+        it('renders lower, median and upper projections buttons', () => {
+            const { getByTestId } = render(
+                <WarmingTable 
+                    clearCountryView={mockClearCountryView}
+                    countryView={mockCountryView}
+                    projectedAnnualWarmingData={mockProjectedAnnualWarmingData}
+                    projectedGlobalWarmingData={mockProjectedGlobalWarmingData}
+                    setCountryToView={mockSetCountryToView}
+                    temperatureRange={MEDIAN_PROJECTIONS}
+                    setTemperatureRange={mockSetTemperatureRange}
+                />
+            );
+
+            expect(getByTestId('lowerProjections-button')).toBeVisible();
+            expect(getByTestId('medianProjections-button')).toBeVisible();
+            expect(getByTestId('upperProjections-button')).toBeVisible();
+        });
+
+        it('does not render data in warming table', () => {
+            const { queryByText } = render(
+                <WarmingTable 
+                    countryView={mockOneSelectedCountryView}
+                    projectedAnnualWarmingData={mockProjectedAnnualWarmingData}
+                    projectedGlobalWarmingData={mockProjectedGlobalWarmingData}
+                    setCountryToView={mockSetCountryToView}
+                    temperatureRange={MEDIAN_PROJECTIONS}
+                    setTemperatureRange={mockSetTemperatureRange}
+                />
+            );
+
+            const lowestTemperature = queryByText('0.41', { exact: false });
+            const highestTemperature = queryByText('1.53', { exact: false });
+            
+            expect(lowestTemperature).toBeNull();
+            expect(highestTemperature).toBeNull();
+        });
+
+        it('renders "Clear Country Selection" button', async () => {
+            const { getByTestId } = render(
+                <WarmingTable 
+                    clearCountryView={mockClearCountryView}
+                    countryView={mockCountryView}
+                    projectedAnnualWarmingData={mockProjectedAnnualWarmingData}
+                    projectedGlobalWarmingData={mockProjectedGlobalWarmingData}
+                    setCountryToView={mockSetCountryToView}
+                    temperatureRange={MEDIAN_PROJECTIONS}
+                    setTemperatureRange={mockSetTemperatureRange}
+                />
+            );
+    
+            const clearCountryViewButton = getByTestId('clearCountryView-button');
+            
+            expect(clearCountryViewButton).toBeInTheDocument();
         });
     });
 });
