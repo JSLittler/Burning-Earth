@@ -30,6 +30,7 @@ const HomePage = ({
       hAxis: { title: "Year" },
       curveType: "function",
       seriesType: "lines",
+      legend: "top",
     };
 
     return (

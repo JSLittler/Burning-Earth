@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import WarmingTable from './warmingTable';
@@ -191,6 +191,9 @@ describe('<WarmingTable />', () => {
     describe('Selecting lower, median or upper temperature projections', () => {
         beforeEach(() => {
             jest.clearAllMocks();
+
+            global.window.innerWidth = 720;
+            global.window.dispatchEvent(new Event('resize'));
         });
           
         it('renders lower, median and upper projections buttons', () => {
@@ -205,7 +208,7 @@ describe('<WarmingTable />', () => {
                     setTemperatureRange={mockSetTemperatureRange}
                 />
             );
-    
+
             expect(getByTestId('lowerProjections-button')).toBeVisible();
             expect(getByTestId('medianProjections-button')).toBeVisible();
             expect(getByTestId('upperProjections-button')).toBeVisible();
@@ -222,6 +225,7 @@ describe('<WarmingTable />', () => {
                     setTemperatureRange={mockSetTemperatureRange}
                 />
             );
+
 
             const lowestTemperature = getByText('0.04', { exact: false });
             const highestTemperature = getByText('0.74', { exact: false });
@@ -250,6 +254,7 @@ describe('<WarmingTable />', () => {
         });
 
         it('renders correct data for UPPER_PROJECTIONS', () => {
+
             const { getByText } = render(
                 <WarmingTable 
                     countryView={mockOneSelectedCountryView}

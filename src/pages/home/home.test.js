@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import HomePage from './home';
 import mockProjectedWarmingData from '../../__mocks__/mockProjectedWarmingData';
@@ -31,8 +31,8 @@ const mockSetCountryToView = jest.fn();
 const mockSetTemperatureRange = jest.fn();
 
 describe('<homePage />', () => {
-    it('renders page, warming table, chart and source', () => {
-        const { getByTestId, getByC } = render(
+    it('renders page, large warming table, chart and source', () => {
+        const { getByTestId } = render(
             <BrowserRouter>
                 <HomePage
                     countryView={mockOneSelectedCountryView}
@@ -46,7 +46,30 @@ describe('<homePage />', () => {
         );
 
         expect(getByTestId('page')).toBeInTheDocument();
-        expect(getByTestId('warmingTable')).toBeInTheDocument();
+        expect(getByTestId('warmingTable-large')).toBeInTheDocument();
+        expect(getByTestId('warmingChart')).toBeInTheDocument();
+        expect(getByTestId('source')).toBeInTheDocument();
+    });
+
+    it('renders page, small warming table, chart and source', () => {
+        global.window.innerWidth = '719';
+        global.window.dispatchEvent(new Event('resize'));
+        
+        const { getByTestId } = render(
+            <BrowserRouter>
+                <HomePage
+                    countryView={mockOneSelectedCountryView}
+                    projectedAnnualWarmingData={mockProjectedAnnualWarmingData}
+                    projectedGlobalWarmingData={mockProjectedGlobalWarmingData}
+                    temperatureRange={MEDIAN_PROJECTIONS}
+                    setCountryToView={mockSetCountryToView}
+                    setTemperatureRange={mockSetTemperatureRange}
+                />
+            </BrowserRouter>
+        );
+
+        expect(getByTestId('page')).toBeInTheDocument();
+        expect(getByTestId('warmingTable-small')).toBeInTheDocument();
         expect(getByTestId('warmingChart')).toBeInTheDocument();
         expect(getByTestId('source')).toBeInTheDocument();
     });
