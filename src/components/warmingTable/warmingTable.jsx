@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { YEARS_TO_DISPLAY } from '../../constants';
 
@@ -13,6 +13,14 @@ const WarmingTable = ({
     temperatureRange,
     setTemperatureRange
 }) => {
+    const [width, setWidth] = useState(window.innerWidth)
+
+    useEffect(() => {
+        const handleResize = () => setWidth(window.innerWidth)
+        window.addEventListener("resize", handleResize)
+        return () => window.removeEventListener("resize", handleResize)
+    }, []);
+    const isSmallScreen = (screenWidth) => screenWidth < 720
 
     const isTableDataReady = projectedGlobalWarmingData?.length && countryView?.view0;
 
@@ -64,7 +72,7 @@ const WarmingTable = ({
         return `${warmingValue}`;
     };
 
-    if (window.innerWidth < 720) {
+    if (isSmallScreen(width)) {
         return (
             <table data-testid="warmingTable-small" className={isTableDataReady ? "table-ready warming-table" : "warming-table"}>
                 <thead className="no-background">
