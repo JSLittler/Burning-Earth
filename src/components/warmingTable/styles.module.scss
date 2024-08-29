@@ -12,7 +12,7 @@
     width: 100%;
 
     .no-background {
-        background-color: navajowhite;
+        background-color: bisque;
         td {
             border: none;
         }
@@ -20,7 +20,7 @@
 
     tbody {
         @media screen and (max-width: 719px) {
-            background-color: navajowhite;
+            background-color: bisque;
 
             td {
                 border: none;
@@ -93,7 +93,7 @@
     }
 
     .selected-button {
-        background-color: navajowhite;
+        background-color: bisque;
         border-radius: 17px;
         color: black;
         height: 30px;
