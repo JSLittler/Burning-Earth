@@ -6,12 +6,11 @@ import './styles.module.scss';
 
 const Page = ({
   children,
-  clearCountryView
 }) => {
   return (
     <div id="page" data-testid="page" className="panelBackground">
       <div id="panel" className="panel">
-        <PageHeader clearCountryView={clearCountryView} />
+        <PageHeader />
         <main autoFocus>
           {children}
         </main>

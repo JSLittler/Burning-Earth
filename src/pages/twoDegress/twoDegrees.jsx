@@ -4,11 +4,9 @@ import Page from '../../components/page/page';
 
 import './styles.module.scss';
 
-const TwoDegrees = ({
-    clearCountryView
-}) => {
+const TwoDegrees = ({}) => {
     return (
-        <Page className="width" clearCountryView={clearCountryView}>
+        <Page className="width">
             <div data-testid="image-container" className='image-container' autoFocus>
                 <img data-testid="twoDegrees-image" src="./assets/consequences.jpg"  alt="" className="infographic"></img>
             </div>

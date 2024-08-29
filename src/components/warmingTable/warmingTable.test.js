@@ -51,6 +51,7 @@ describe('<WarmingTable />', () => {
                 setCountryToView={mockSetCountryToView}
                 temperatureRange={MEDIAN_PROJECTIONS}
                 setTemperatureRange={mockSetTemperatureRange}
+                isSmallScreen={false}
             />
         );
 
@@ -69,6 +70,7 @@ describe('<WarmingTable />', () => {
                     setCountryToView={mockSetCountryToView}
                     temperatureRange={LOWER_PROJECTIONS}
                     setTemperatureRange={mockSetTemperatureRange}
+                    isSmallScreen={false}
                 />
             );
 
@@ -91,7 +93,7 @@ describe('<WarmingTable />', () => {
 
     describe('Selecting countries to view warming data for', () => {
         it('renders a single country select on load', () => {
-            const { getByTestId } = render(
+            const { getByTestId, queryByText } = render(
                 <WarmingTable 
                     clearCountryView={mockClearCountryView}
                     countryView={mockCountryView}
@@ -100,16 +102,20 @@ describe('<WarmingTable />', () => {
                     setCountryToView={mockSetCountryToView}
                     temperatureRange={MEDIAN_PROJECTIONS}
                     setTemperatureRange={mockSetTemperatureRange}
+                    isSmallScreen={false}
                 />
             );
     
+            const country1Row = queryByText('Select first country to compare', { exact: false });
+            const country2Row = queryByText('Select second country to compare', { exact: false });
+    
             expect(getByTestId('global-median-row'));
-            expect(getByTestId('country1-row')).toBeVisible();
-            expect(getByTestId('country2-row')).not.toBeVisible();
+            expect(country1Row).toBeVisible();
+            expect(country2Row).toBeNull();
         });
     
         it('renders a second country select when the first country is selected', async () => {
-            const { getByTestId } = render(
+            const { getByTestId, queryByText } = render(
                 <WarmingTable 
                     countryView={mockOneSelectedCountryView}
                     projectedAnnualWarmingData={mockProjectedAnnualWarmingData}
@@ -117,13 +123,18 @@ describe('<WarmingTable />', () => {
                     setCountryToView={mockSetCountryToView}
                     temperatureRange={MEDIAN_PROJECTIONS}
                     setTemperatureRange={mockSetTemperatureRange}
+                    isSmallScreen={false}
                 />
             );
+
+            const country1Row = queryByText('Select first country to compare', { exact: false });
+            const country2Row = queryByText('Select second country to compare', { exact: false });
+            const country3Row = queryByText('Select third country to compare', { exact: false });
     
             expect(getByTestId('global-median-row'));
-            expect(getByTestId('country1-row')).toBeVisible();
-            expect(getByTestId('country2-row')).toBeVisible();
-            expect(getByTestId('country3-row')).not.toBeVisible();
+            expect(country1Row).toBeVisible();
+            expect(country2Row).toBeVisible();
+            expect(country3Row).toBeNull();
         });
     
         it('renders up to five country selects when all are set', () => {
@@ -135,6 +146,7 @@ describe('<WarmingTable />', () => {
                     setCountryToView={mockSetCountryToView}
                     temperatureRange={MEDIAN_PROJECTIONS}
                     setTemperatureRange={mockSetTemperatureRange}
+                    isSmallScreen={false}
                 />
             );
     
@@ -158,6 +170,7 @@ describe('<WarmingTable />', () => {
                     setCountryToView={mockSetCountryToView}
                     temperatureRange={MEDIAN_PROJECTIONS}
                     setTemperatureRange={mockSetTemperatureRange}
+                    isSmallScreen={false}
                 />
             );
     
@@ -178,6 +191,7 @@ describe('<WarmingTable />', () => {
                     setCountryToView={mockSetCountryToView}
                     temperatureRange={MEDIAN_PROJECTIONS}
                     setTemperatureRange={mockSetTemperatureRange}
+                    isSmallScreen={false}
                 />
             );
     
@@ -196,6 +210,7 @@ describe('<WarmingTable />', () => {
                     setCountryToView={mockSetCountryToView}
                     temperatureRange={MEDIAN_PROJECTIONS}
                     setTemperatureRange={mockSetTemperatureRange}
+                    isSmallScreen={false}
                 />
             );
     
@@ -214,6 +229,7 @@ describe('<WarmingTable />', () => {
                     setCountryToView={mockSetCountryToView}
                     temperatureRange={MEDIAN_PROJECTIONS}
                     setTemperatureRange={mockSetTemperatureRange}
+                    isSmallScreen={false}
                 />
             );
     
@@ -227,9 +243,6 @@ describe('<WarmingTable />', () => {
     describe('Selecting data content and lower, median or upper temperature projections on larger screens', () => {
         beforeEach(() => {
             jest.clearAllMocks();
-
-            global.window.innerWidth = 720;
-            global.window.dispatchEvent(new Event('resize'));
         });
           
         it('renders lower, median and upper projections buttons', () => {
@@ -242,6 +255,7 @@ describe('<WarmingTable />', () => {
                     setCountryToView={mockSetCountryToView}
                     temperatureRange={MEDIAN_PROJECTIONS}
                     setTemperatureRange={mockSetTemperatureRange}
+                    isSmallScreen={false}
                 />
             );
 
@@ -259,6 +273,7 @@ describe('<WarmingTable />', () => {
                     setCountryToView={mockSetCountryToView}
                     temperatureRange={LOWER_PROJECTIONS}
                     setTemperatureRange={mockSetTemperatureRange}
+                    isSmallScreen={false}
                 />
             );
 
@@ -279,6 +294,7 @@ describe('<WarmingTable />', () => {
                     setCountryToView={mockSetCountryToView}
                     temperatureRange={MEDIAN_PROJECTIONS}
                     setTemperatureRange={mockSetTemperatureRange}
+                    isSmallScreen={false}
                 />
             );
 
@@ -298,6 +314,7 @@ describe('<WarmingTable />', () => {
                     setCountryToView={mockSetCountryToView}
                     temperatureRange={UPPER_PROJECTIONS}
                     setTemperatureRange={mockSetTemperatureRange}
+                    isSmallScreen={false}
                 />
             );
 
@@ -318,6 +335,7 @@ describe('<WarmingTable />', () => {
                     setCountryToView={mockSetCountryToView}
                     temperatureRange={LOWER_PROJECTIONS}
                     setTemperatureRange={mockSetTemperatureRange}
+                    isSmallScreen={false}
                 />
             );
 
@@ -343,6 +361,7 @@ describe('<WarmingTable />', () => {
                     setCountryToView={mockSetCountryToView}
                     temperatureRange={MEDIAN_PROJECTIONS}
                     setTemperatureRange={mockSetTemperatureRange}
+                    isSmallScreen={false}
                 />
             );
 
@@ -368,6 +387,7 @@ describe('<WarmingTable />', () => {
                     setCountryToView={mockSetCountryToView}
                     temperatureRange={UPPER_PROJECTIONS}
                     setTemperatureRange={mockSetTemperatureRange}
+                    isSmallScreen={false}
                 />
             );
 
@@ -387,9 +407,6 @@ describe('<WarmingTable />', () => {
     describe('Selecting data content and lower, median or upper temperature projections on smaller screens', () => {
         beforeEach(() => {
             jest.clearAllMocks();
-
-            global.window.innerWidth = 719;
-            global.window.dispatchEvent(new Event('resize'));
         });
           
         it('renders lower, median and upper projections buttons', () => {
@@ -402,6 +419,7 @@ describe('<WarmingTable />', () => {
                     setCountryToView={mockSetCountryToView}
                     temperatureRange={MEDIAN_PROJECTIONS}
                     setTemperatureRange={mockSetTemperatureRange}
+                    isSmallScreen={true}
                 />
             );
 
@@ -419,6 +437,7 @@ describe('<WarmingTable />', () => {
                     setCountryToView={mockSetCountryToView}
                     temperatureRange={MEDIAN_PROJECTIONS}
                     setTemperatureRange={mockSetTemperatureRange}
+                    isSmallScreen={true}
                 />
             );
 
@@ -439,6 +458,7 @@ describe('<WarmingTable />', () => {
                     setCountryToView={mockSetCountryToView}
                     temperatureRange={MEDIAN_PROJECTIONS}
                     setTemperatureRange={mockSetTemperatureRange}
+                    isSmallScreen={true}
                 />
             );
     

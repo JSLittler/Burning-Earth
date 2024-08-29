@@ -46,7 +46,7 @@ describe('<homePage />', () => {
         );
 
         expect(getByTestId('page')).toBeInTheDocument();
-        expect(getByTestId('warmingTable-large')).toBeInTheDocument();
+        expect(getByTestId('warmingTable')).toBeInTheDocument();
         expect(getByTestId('warmingChart')).toBeInTheDocument();
         expect(getByTestId('source')).toBeInTheDocument();
     });
@@ -69,7 +69,7 @@ describe('<homePage />', () => {
         );
 
         expect(getByTestId('page')).toBeInTheDocument();
-        expect(getByTestId('warmingTable-small')).toBeInTheDocument();
+        expect(getByTestId('warmingTable')).toBeInTheDocument();
         expect(getByTestId('warmingChart')).toBeInTheDocument();
         expect(getByTestId('source')).toBeInTheDocument();
     });

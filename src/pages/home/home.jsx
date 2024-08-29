@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Chart } from "react-google-charts";
 
 import Page from '../../components/page/page';
 import WarmingTable from '../../components/warmingTable/warmingTable';
 import getChartData from '../../utils/getChartData';
+import { MOBILE_WIDTH } from '../../constants';
 
 import './styles.module.scss';
 
@@ -16,6 +17,23 @@ const HomePage = ({
   setCountryToView,
   setTemperatureRange
 }) => {
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= MOBILE_WIDTH)
+  const prevWidth = useRef(window.innerWidth)
+
+  useEffect(() => {
+    const handleResize = () => {
+      const currWidth = window.innerWidth
+      if (currWidth <= MOBILE_WIDTH && prevWidth.current > MOBILE_WIDTH){
+        setIsSmallScreen(true)
+      } else if (currWidth > MOBILE_WIDTH && prevWidth.current <= MOBILE_WIDTH) {
+        setIsSmallScreen(false)
+      }
+      prevWidth.current = currWidth
+    }
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, []);
+
   const isTableDataReady = projectedGlobalWarmingData?.length && countryView?.view0;
 
   const getChart = () => {
@@ -41,18 +59,19 @@ const HomePage = ({
           data={data}
           height="400px"
           options={options}
-          width="100%"
+          width={isSmallScreen ? "94%" : "100%"}
         />
       </div>
     );
   };
   
   return (
-    <Page clearCountryView={clearCountryView}>
+    <Page>
       <div className="home-container">
         <WarmingTable
           clearCountryView={clearCountryView}
           countryView={countryView}
+          isSmallScreen={isSmallScreen}
           projectedAnnualWarmingData={projectedAnnualWarmingData}
           projectedGlobalWarmingData={projectedGlobalWarmingData}
           setCountryToView={setCountryToView}

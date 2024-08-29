@@ -1,3 +1,5 @@
+const MOBILE_WIDTH = 720;
+
 const PAGES = {
     HOME_PAGE: {
         title: 'Home',
@@ -13,6 +15,14 @@ const PAGES = {
     }
 };
 
+const POSITIONAL_TERMS = {
+    1: 'first',
+    2: 'second',
+    3: 'third',
+    4: 'fourth',
+    5: 'final'
+};
+
 const TEMPERATURE_RANGE = {
     LOWER_PROJECTIONS: 'lowerProjections',
     MEDIAN_PROJECTIONS: 'medianProjections',
@@ -22,7 +32,9 @@ const TEMPERATURE_RANGE = {
 const YEARS_TO_DISPLAY = [2020, 2030, 2040, 2050, 2060, 2070, 2080, 2090, 2100];
 
 export {
+    MOBILE_WIDTH,
     PAGES,
+    POSITIONAL_TERMS,
     TEMPERATURE_RANGE,
     YEARS_TO_DISPLAY
 };

@@ -5,13 +5,10 @@ import { PAGES } from '../../constants';
 
 import './styles.module.scss';
 
-const PageHeader = ({
-    clearCountryView
-}) => {
+const PageHeader = ({}) => {
     const navigate = useNavigate();
 
     const movePage = page => {
-        clearCountryView();
         navigate(page);
     };
 
