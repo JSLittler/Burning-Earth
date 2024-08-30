@@ -63,4 +63,6 @@ resource "aws_s3_object" "burning_earth_files" {
   content = each.value.content
 
   etag = each.value.digests.md5
+
+  cache_control = "public, max-age=0, s-maxage=60, must-revalidate"
 }
