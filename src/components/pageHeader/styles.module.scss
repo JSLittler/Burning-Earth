@@ -1,6 +1,7 @@
 .header {
-    text-wrap: wrap;
     font-size: large;
+    padding-top: 20px;
+    text-wrap: wrap;
 
     @media screen and (max-width: 719px) {
         font-size: medium;
@@ -14,6 +15,7 @@
             font-weight: bolder;
             margin: 0;
             margin: auto;
+            padding-right: 3%;
             text-align: center;
             text-decoration: underline;
             text-wrap: nowrap;
@@ -29,6 +31,7 @@
 
     .greta {
         font-weight: lighter;
+        padding-left: 3%;
         padding-right: 3%;
         text-wrap: balance;
     }
