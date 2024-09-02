@@ -2,6 +2,10 @@
     text-wrap: wrap;
     font-size: large;
 
+    @media screen and (max-width: 719px) {
+        font-size: medium;
+    }
+
     .title {
         width: 100%;
 
@@ -30,11 +34,11 @@
     }
 
     .nav-container {
-        @media screen and (max-width: 725px) {
+        @media screen and (max-width: 719px) {
             display: inline-block;
         }
       
-          @media screen and (min-width: 726px) {
+          @media screen and (min-width: 720px) {
             display: block;
         }
 

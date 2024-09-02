@@ -87,7 +87,10 @@ const WarmingTable = ({
         <thead className="no-background">
             <tr>
                 <th colSpan="10">
-                    <h2 className="text-size">Future Warming</h2>
+                    <h2>Future Warming</h2>
+                    <p className="text-size">
+                        The whole world is warming, but some areas are warming faster than others, which means that these areas suffer greater and more immediate effects.
+                    </p>
                     <p className="text-size">
                         Select a country to see how much it is expected to warm up to the year 2100, with current climate policies in place.
                     </p>
