@@ -59,7 +59,7 @@ const HomePage = ({
           data={data}
           height="400px"
           options={options}
-          width={isSmallScreen ? "94%" : "100%"}
+          width="100%"
         />
       </div>
     );

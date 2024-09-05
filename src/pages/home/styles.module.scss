@@ -25,13 +25,16 @@
     margin: auto;
     margin-left: auto;
     margin-top: 15px;
+    overflow: scroll;
     width: 100%;
 
     @media screen and (max-width: 719px) {
-        align-items: center;
         display: inline-block;
         height: 100%;
-        padding-left: 4%;
+        margin: 0;
+        margin: auto;
+        text-align: center;
+        width: 100%;
     }
 
     svg {
