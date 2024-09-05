@@ -9,6 +9,7 @@
     margin: auto;
     margin-bottom: 15px;
     margin-top: 15px;
+    padding-left: 2%;
     width: 100%;
 
     .no-background {
@@ -114,5 +115,10 @@
     background-color: orange;
     color: black;
     font-weight: bolder;
+}
+
+p {
+    padding-left: 3%;
+    padding-right: 3%;
 }
 
