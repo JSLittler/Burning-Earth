@@ -1,0 +1,27 @@
+.hover-hint-icon {
+    color: blue;
+    visibility: visible;
+}
+
+.hover-hint {
+    background-color: #474747;
+    border-radius: 12px;
+    color: white !important;
+    cursor: pointer;
+    font-size: 10px;
+    margin-top: 8px;
+    padding: 5px 0;
+    position: absolute;
+    visibility: hidden;
+    width: 200px;
+    z-index: 1;
+}
+
+.hover-hint-icon .hover-hint table tbody tr td{
+    background-color: #474747;
+    border-bottom: none;
+}
+
+.hover-hint-icon:hover .hover-hint{
+    visibility: visible;
+}

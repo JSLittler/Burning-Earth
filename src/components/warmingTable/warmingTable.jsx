@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { POSITIONAL_TERMS, YEARS_TO_DISPLAY } from '../../constants';
+import hoverHint from '../hoverHint/hoverHint';
 
 import './styles.module.scss';
 
@@ -95,9 +96,18 @@ const WarmingTable = ({
                         Select a country to see how much it is expected to warm up to the year 2100, with current climate policies in place.
                     </p>
                     <div className="range-container">
-                        <button data-testid="lowerProjections-button" className={temperatureRange === "lowerProjections" ? "selected-button" : "estimate-button"} onClick={() => setTemperatureRange('lowerProjections')}><strong>lower</strong> warming estimates</button>
-                        <button data-testid="medianProjections-button" className={temperatureRange === "medianProjections" ? "selected-button" : "estimate-button"} onClick={() => setTemperatureRange('medianProjections')}><strong>median</strong> warming estimates</button>
-                        <button data-testid="upperProjections-button" className={temperatureRange === "upperProjections" ? "selected-button" : "estimate-button"} onClick={() => setTemperatureRange('upperProjections')}><strong>upper</strong> warming estimates</button>
+                        <button data-testid="lowerProjections-button" className={temperatureRange === "lowerProjections" ? "selected-button" : "estimate-button"} onClick={() => setTemperatureRange('lowerProjections')}>
+                            <strong>lower</strong> warming estimates
+                            {hoverHint({ textContentPrimary: 'Selecting this button will display the lowest predicted warming outcomes.', textContentSecondary: 'Scientists consider it particularly unlikely that warming will be confined to this range.' })}
+                        </button>
+                        <button data-testid="medianProjections-button" className={temperatureRange === "medianProjections" ? "selected-button" : "estimate-button"} onClick={() => setTemperatureRange('medianProjections')}>
+                            <strong>median</strong> warming estimates
+                            {hoverHint({ textContentPrimary: 'Selecting this button will display the median predicted warming outcomes.', textContentSecondary: 'Scientists no longer expect future warming to fall within this range.' })}
+                        </button>
+                        <button data-testid="upperProjections-button" className={temperatureRange === "upperProjections" ? "selected-button" : "estimate-button"} onClick={() => setTemperatureRange('upperProjections')}>
+                            <strong>upper</strong> warming estimates
+                            {hoverHint({ textContentPrimary: 'Selecting this button will display the highest predicted warming outcomes.', textContentSecondary: 'Scientists now consider this the most likely range of warming.' })}
+                        </button>
                     </div>
                 </th>
             </tr>
