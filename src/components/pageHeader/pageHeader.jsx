@@ -15,7 +15,7 @@ const PageHeader = ({}) => {
     return (
         <header className="header">
             <div className="title">
-                <h1> Burning Earth</h1><img src="./assets/favicon.png" alt="" className="logo"></img>
+                <h1>Burning Earth</h1>
             </div>
             <div className='greta'>
                 <p >

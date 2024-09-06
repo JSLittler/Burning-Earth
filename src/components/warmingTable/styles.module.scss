@@ -9,7 +9,6 @@
     margin: auto;
     margin-bottom: 15px;
     margin-top: 15px;
-    padding-left: 2%;
     width: 100%;
 
     .no-background {
@@ -32,13 +31,15 @@
             background-color: white;
 
             td {
-                border: 1px solid #753209e3;;
+                border: 1px solid #753209e3;
             }
         }
     }
 
     td {
         border: 1px solid #753209e3;
+        margin: 0;
+        margin: auto;
         padding-bottom: 10px;
     }
 
@@ -47,16 +48,17 @@
     }
 
     .select {
+        border: black 1px;  
         border-radius: 17px;  
+        box-shadow: 5px 5px 5px -2px #753209e3;
+        color: teal;
+        flex: space-around;
         font-size: 10pt;
         height: 30px;
-        min-width: 35px;
-        border: black 1px;  
-        padding-left: 7px;
-        flex: space-around;
         margin: 1%;
         margin-top: 1em;
-        box-shadow: 5px 5px 5px -2px #753209e3;
+        min-width: 35px;
+        padding-left: 7px;
     }
 
     .range-container {
@@ -72,22 +74,15 @@
     .text-size {
         font-size: normal;
         font-weight: normal;
-
-        @media screen and (max-width: 719px) {
-            padding-left: 3%;
-            padding-right: 3%;
-        }
-
-        @media screen and (min-width: 720px) {
-            padding-left: 0%;
-            padding-right: 0%;
-        }
+        padding-left: 3%;
+        padding-right: 3%;
     }
 
     .estimate-button {
         border: black 1px;  
         border-radius: 17px;  
         box-shadow: 5px 5px 5px -2px #753209e3;
+        color: teal;
         height: 30px;
         margin: 1%;
         margin-top: 1em;
@@ -115,10 +110,5 @@
     background-color: orange;
     color: black;
     font-weight: bolder;
-}
-
-p {
-    padding-left: 3%;
-    padding-right: 3%;
 }
 
