@@ -10,6 +10,8 @@
     margin-bottom: 15px;
     margin-top: 15px;
     max-width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
     width: 100%;
 
     .no-background {
@@ -53,7 +55,7 @@
         border: black 1px;  
         border-radius: 17px;  
         box-shadow: 5px 5px 5px -2px #753209e3;
-        color: teal;
+        color: Navy;
         flex: space-around;
         font-size: 10pt;
         height: 30px;
@@ -64,11 +66,11 @@
     }
 
     .range-container {
-        @media screen and (max-width: 719px) {
+        @media screen and (max-width: 819px) {
             display: inline-block;
         }
       
-        @media screen and (min-width: 720px) {
+        @media screen and (min-width: 820px) {
             display: block;
         }
     }
@@ -85,7 +87,7 @@
         border: black 1px;  
         border-radius: 17px;  
         box-shadow: 5px 5px 5px -2px #753209e3;
-        color: teal;
+        color: Navy;
         height: 30px;
         margin: 1%;
         margin-top: 1em;

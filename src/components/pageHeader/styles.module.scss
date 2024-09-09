@@ -1,6 +1,8 @@
 .header {
     font-size: large;
     max-width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
     padding-top: 20px;
     text-wrap: wrap;
 
@@ -10,7 +12,7 @@
 
     .title {
         h1 {
-            color: teal;
+            color: navy;
             font-family: fantasy;
             font-weight: bolder;
             margin: 0;
@@ -45,8 +47,6 @@
 
     .greta {
         font-weight: lighter;
-        padding-left: 3%;
-        padding-right: 3%;
         text-wrap: balance;
     }
 
@@ -68,7 +68,7 @@
             border: black 1px;  
             border-radius: 17px;  
             box-shadow: 5px 5px 5px -2px #753209e3;
-            color: teal;
+            color: navy;
             height: 30px;
             margin: 1%;
             margin-top: 1em;
