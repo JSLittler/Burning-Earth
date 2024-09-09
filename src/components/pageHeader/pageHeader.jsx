@@ -19,7 +19,7 @@ const PageHeader = ({}) => {
             </div>
             <div className='greta'>
                 <p >
-                    "I want you to act as you would in a crisis. I want you to act as if our house is on fire. Because it is. - <strong>Greta Thunberg</strong>"
+                    "I want you to act as you would in a crisis. I want you to act as if our house is on fire. Because it is." - <strong>Greta Thunberg</strong>
                 </p>
                 <div className='nav-container'>
                     <hr />
