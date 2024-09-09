@@ -71,14 +71,14 @@ const WarmingTable = ({
     const getTableRow = (index) => (
         <tr data-testid={`country${index}-row`}>
             <td>
-                <select id={`country${index}`} data-testid={`country${index}`} name={`country${index}`} defaultValue={getDefaultView(index - 1)} onChange={e => setCountryData(e)} className='select'>
+                <select id={`country${index}`} data-testid={`country${index}`} name={`country${index}`} defaultValue={getDefaultView(index - 1)} onChange={e => setCountryData(e)} className='country-select'>
                     <option value="" disabled hidden>Select Country</option>
                     {projectedAnnualWarmingData?.map((c, i) => {
                         return <option key={i} value={`${c.code}-view${index - 1}`}>{c.name}</option>
                     })}
                 </select>
                 <br></br>
-                <label htmlFor={`country${index}`}>Select {POSITIONAL_TERMS[index]} country to compare</label>
+                <label htmlFor={`country${index}`} className="label">Select {POSITIONAL_TERMS[index]} country to compare</label>
             </td>
             {getWarmingTableCells(index)}
         </tr>

@@ -1,6 +1,5 @@
 .home-container {
-    padding-left: 0px;
-    padding-right: 0px;
+    padding: 0 1%;
     width: 100%;
 
     @media screen and (max-width: 719px) {
@@ -19,7 +18,7 @@
     margin: auto;
     margin-left: auto;
     margin-top: 15px;
-    max-width: 100%;
+    max-width: 96%;
     overflow: scroll;
     padding: 0px;
     width: 100%;
