@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { POSITIONAL_TERMS, YEARS_TO_DISPLAY } from '../../constants';
 import hoverHint from '../hoverHint/hoverHint';
