@@ -1,5 +1,6 @@
 .header {
     font-size: large;
+    max-width: 100%;
     padding-top: 20px;
     text-wrap: wrap;
 
@@ -14,8 +15,9 @@
             font-weight: bolder;
             margin: 0;
             margin: auto;
-            margin-bottom: 25px;
+            margin-bottom: 10px;
             padding-bottom: 25px;
+            padding-right: 20px;
             padding-top: 25px;
             text-align: center;
             text-decoration: underline;
