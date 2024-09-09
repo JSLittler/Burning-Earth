@@ -1,6 +1,6 @@
 .home-container {
     padding: 0 1%;
-    width: 100%;
+    width: 98%;
 
     @media screen and (max-width: 719px) {
         display: inline-block;
@@ -19,9 +19,9 @@
     margin-left: auto;
     margin-top: 15px;
     max-width: 96%;
-    overflow: scroll;
+    overflow: hidden;
     padding: 0px;
-    width: 100%;
+    width: 98%;
 
     @media screen and (max-width: 719px) {
         display: inline-block;
