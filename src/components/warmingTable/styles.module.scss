@@ -80,6 +80,10 @@
         font-weight: normal;
         padding-left: 3%;
         padding-right: 3%;
+
+        @media screen and (max-width: 819px) {
+            -webkit-text-size-adjust: none;
+        }
     }
 
     .estimate-button {
@@ -120,5 +124,6 @@
 .label {
     font-size: 10pt !important;
     font-weight: lighter;
+    -webkit-text-size-adjust: none;
 }
 
